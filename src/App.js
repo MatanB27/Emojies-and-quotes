@@ -1,25 +1,60 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
+import Nav from './components/Nav';
+import Emojies from './Emoji';
+import About from './components/About';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav/>
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/emojies' exact component={Emojies}/>
+          <Route path='/about' component={About}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
+const Home = () => {
+  const [loding, setLoading] = useState(false);
+  const [quote, setQuote] = useState({
+    quote: '',
+    author: ''
+  });
+
+  const fetchData = async () => {
+    try{
+        setLoading(true);
+        const data = await fetch('https://api.quotable.io/random');
+        const json = await data.json();
+        setQuote({
+          quote: json.content,
+          author: json.author
+        });
+        setLoading(false);
+    }catch(e){
+        console.log(e);
+    }
+}
+
+useEffect(() => {
+  fetchData();
+}, []) //Only run once
+  
+  return(
+    <div>
+        <div class="quote-wrapper">
+           <blockquote class="text" cite="http://www.inspireux.com/category/quotes/jesse-james-garrett/">
+            <p>{quote.quote}</p>
+            <footer>– {quote.author}</footer>
+            </blockquote>
+        </div>
+    </div>
+  );
+}
 export default App;
