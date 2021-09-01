@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Nav from './components/Nav';
 import Emojies from './Emoji';
 import About from './components/About';
+import EmojiSingle from './EmojiSingle';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home}/>
           <Route path='/emojies' exact component={Emojies}/>
+          <Route path='/emojies/:slug'component={EmojiSingle}/>
           <Route path='/about' component={About}/>
         </Switch>
       </div>

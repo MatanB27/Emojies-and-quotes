@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Loading from './components/Loading';
 import EmojiItem from './components/EmojiItem';
+import {Link} from 'react-router-dom';
 
 function Emojies(){
 
@@ -50,6 +51,8 @@ function Emojies(){
         return(
             <div>
                 <h1>Emojies</h1>
+                <hr/>
+                <br/><br/>
                 <div className="dropdown">
                     {
                         title === '' ? <span>Find your emoji here</span> :
@@ -69,14 +72,16 @@ function Emojies(){
                     </div>
                 </div>
                 <div className='grid-container'>
-                        {
-                            emojies.map((emoji, index) => {
+                        { // slug will be our ID - our explanation
+                            emojies.map((emoji) => {
                                 return(
-                                    <EmojiItem
-                                        key={index}
-                                        icon={emoji.character}
-                                        desc={emoji.unicodeName}
-                                    />
+                                    <Link to={`/emojies/${emoji.slug}`}>
+                                        <EmojiItem
+                                            key={emoji.slug}
+                                            icon={emoji.character}
+                                            desc={emoji.unicodeName}
+                                        />
+                                    </Link>
                                 );
                             })
                         }
