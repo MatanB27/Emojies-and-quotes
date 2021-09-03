@@ -10,7 +10,7 @@ function About(){
             </div> 
             <br/><br/>
             <div className='container-about'>
-                <img src={MyImage} alt='Matan Baruch'/>
+                <img className='my-image'src={MyImage} alt='Matan Baruch'/>
                 <p>Hey! My name is Matan Baruch and I am from Israel.<br/>
                     I created this react project to enrich my knowledge about
                     react, to build and create sites from Api's around the web.

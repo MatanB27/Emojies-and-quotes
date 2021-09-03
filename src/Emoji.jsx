@@ -32,7 +32,7 @@ function Emojies(){
     const getGroup = (event) => {
         var items = [];
         jsonData.map((item) => {
-            if(item.group === event.target.textContent){
+            if(item.group === event.target.textContent.replaceAll(' ','-')){
                 items.push(item);
             }
         });
@@ -53,7 +53,7 @@ function Emojies(){
                 <h1>Emojies</h1>
                 <hr/>
                 <br/><br/>
-                <div className="dropdown">
+                <div className="dropdown drop-btn">
                     {
                         title === '' ? <span>Find your emoji here</span> :
                         <span>{title}</span>
@@ -64,7 +64,7 @@ function Emojies(){
                                 return(
                                     <div key={index} onClick={getGroup}>
                                         <p key={index} value={item} className='menu-items'>
-                                            {item}</p>
+                                            {item.replaceAll('-',' ')}</p>
                                     </div>
                                 );
                             })

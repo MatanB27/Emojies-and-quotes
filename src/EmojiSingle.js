@@ -38,7 +38,7 @@ function EmojiSingle({match}){
                     <EmojiItem
                             key={emoji.slug}
                             icon={emoji.character}
-                            desc={emoji.slug}
+                            desc={emoji.slug.replaceAll('-',' ')}
                         />
                 </div>
             );
@@ -57,7 +57,7 @@ function EmojiSingle({match}){
                                 <EmojiItem
                                     key={variant.slug}
                                     icon={variant.character}
-                                    desc={variant.slug}
+                                    desc={variant.slug.replaceAll('-',' ')}
                                 />
                             );
                         })

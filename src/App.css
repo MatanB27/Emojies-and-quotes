@@ -1,9 +1,11 @@
 .App{
   text-align: center;
+  
 }
 body{
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
+  background-color: rgb(169, 190, 197);
 }
 /* Add a black background color to the top navigation */
 .topnav {
@@ -57,7 +59,7 @@ nav{
 
 hr {
   height: .25rem;
-  width: 8%;
+  width: 12%;
   margin: auto;
   background: blue;
   border: none;
@@ -68,7 +70,7 @@ hr {
   text-align: center;
 }
 
-img {
+.my-image {
   border-radius: 50%;
   width: 50%;
   height: 50%;
@@ -116,7 +118,7 @@ img {
   cursor: pointer;
   display: inline-block;
   border: 2px solid black;
-  box-shadow: 4px 6px rgb(88, 87, 87);
+  box-shadow: 4px 6px 12px rgb(88, 87, 87);
   background-color: rgb(59, 176, 223);
 }
 
@@ -242,3 +244,45 @@ img {
   }
 }
 
+.drop-btn{
+  box-shadow: 4px 8px 12px rgba(0,0,0,0.2);
+}
+
+.city-item{
+  text-transform: capitalize;
+  display: inline-block;
+  justify-content: center;
+  width: 8rem;
+  height: 4rem;
+  color:rgb(8, 57, 71);
+  margin: 10px;
+  background-color: rgb(179, 221, 221);
+  box-shadow: 2px 4px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.cities{
+  width: 100%; 
+  display: inline-block;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.weather-ticket{
+  width: 10rem;
+  height: 14rem;
+  margin: 8px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  background-color: rgb(173, 178, 180);
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px grey;
+}
+
+.tickets{
+  width: 100%; 
+  display: inline-block;
+  margin: 0 auto;
+  justify-content: center;
+}
